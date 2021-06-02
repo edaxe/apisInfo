@@ -1,0 +1,247 @@
+swagger: '2.0'
+info:
+  description: Api Documentation
+  version: '1.0'
+  title: TransporterAPI Documentation
+  termsOfService: 'urn:tos'
+  contact: {}
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0'
+host: 'localhost:9090'
+basePath: /
+tags:
+  - name: transporter
+    description: Transporter Controller
+paths:
+  /home:
+    get:
+      tags:
+        - transporter
+      summary: home
+      operationId: homeUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /transporter:
+    get:
+      tags:
+        - transporter
+      summary: getTransporters
+      operationId: getTransportersUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: approved
+          in: query
+          description: approved
+          required: false
+          type: boolean
+        - name: pageNo
+          in: query
+          description: pageNo
+          required: false
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Transporter'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    post:
+      tags:
+        - transporter
+      summary: addTransporter
+      operationId: addTransporterUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: transporter
+          description: transporter
+          required: true
+          schema:
+            $ref: '#/definitions/LoadTransporter'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/TransporterCreateResponse'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/transporter/{id}':
+    get:
+      tags:
+        - transporter
+      summary: getOneTransporter
+      operationId: getOneTransporterUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Transporter'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+        - transporter
+      summary: updateTransporter
+      operationId: updateTransporterUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+        - in: body
+          name: transporter
+          description: transporter
+          required: true
+          schema:
+            $ref: '#/definitions/LoadTransporter'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/TransporterUpdateResponse'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+        - transporter
+      summary: deleteTransporter
+      operationId: deleteTransporterUsingDELETE
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/TransporterDeleteResponse'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+definitions:
+  LoadTransporter:
+    type: object
+    properties:
+      approved:
+        type: boolean
+      companyName:
+        type: string
+      kyc:
+        type: string
+      name:
+        type: string
+      phoneNo:
+        type: integer
+        format: int64
+      transporterLocation:
+        type: string
+    title: LoadTransporter
+  Transporter:
+    type: object
+    properties:
+      approved:
+        type: boolean
+      companyName:
+        type: string
+      id:
+        type: string
+      kyc:
+        type: string
+      name:
+        type: string
+      phoneNo:
+        type: integer
+        format: int64
+      transporterLocation:
+        type: string
+    title: Transporter
+  TransporterCreateResponse:
+    type: object
+    properties:
+      message:
+        type: string
+      status:
+        type: string
+    title: TransporterCreateResponse
+  TransporterDeleteResponse:
+    type: object
+    properties:
+      message:
+        type: string
+      status:
+        type: string
+    title: TransporterDeleteResponse
+  TransporterUpdateResponse:
+    type: object
+    properties:
+      message:
+        type: string
+      status:
+        type: string
+    title: TransporterUpdateResponse
