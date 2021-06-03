@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  description: Api Documentation
+  description: TransporterAPI Documentation
   version: '1.0'
   title: TransporterAPI Documentation
   termsOfService: 'urn:tos'
@@ -11,13 +11,13 @@ info:
 host: 'localhost:9090'
 basePath: /
 tags:
-  - name: transporter
+  - name: transporter-controller
     description: Transporter Controller
 paths:
   /home:
     get:
       tags:
-        - transporter
+        - transporter-controller
       summary: home
       operationId: homeUsingGET
       produces:
@@ -37,7 +37,7 @@ paths:
   /transporter:
     get:
       tags:
-        - transporter
+        - transporter-controller
       summary: getTransporters
       operationId: getTransportersUsingGET
       produces:
@@ -70,7 +70,7 @@ paths:
       deprecated: false
     post:
       tags:
-        - transporter
+        - transporter-controller
       summary: addTransporter
       operationId: addTransporterUsingPOST
       consumes:
@@ -83,7 +83,7 @@ paths:
           description: transporter
           required: true
           schema:
-            $ref: '#/definitions/LoadTransporter'
+            $ref: '#/definitions/PostTransporter'
       responses:
         '200':
           description: OK
@@ -101,7 +101,7 @@ paths:
   '/transporter/{id}':
     get:
       tags:
-        - transporter
+        - transporter-controller
       summary: getOneTransporter
       operationId: getOneTransporterUsingGET
       produces:
@@ -126,7 +126,7 @@ paths:
       deprecated: false
     put:
       tags:
-        - transporter
+        - transporter-controller
       summary: updateTransporter
       operationId: updateTransporterUsingPUT
       consumes:
@@ -144,7 +144,7 @@ paths:
           description: transporter
           required: true
           schema:
-            $ref: '#/definitions/LoadTransporter'
+            $ref: '#/definitions/UpdateTransporter'
       responses:
         '200':
           description: OK
@@ -161,7 +161,7 @@ paths:
       deprecated: false
     delete:
       tags:
-        - transporter
+        - transporter-controller
       summary: deleteTransporter
       operationId: deleteTransporterUsingDELETE
       produces:
@@ -185,11 +185,9 @@ paths:
           description: Forbidden
       deprecated: false
 definitions:
-  LoadTransporter:
+  PostTransporter:
     type: object
     properties:
-      approved:
-        type: boolean
       companyName:
         type: string
       kyc:
@@ -201,11 +199,11 @@ definitions:
         format: int64
       transporterLocation:
         type: string
-    title: LoadTransporter
+    title: PostTransporter
   Transporter:
     type: object
     properties:
-      approved:
+      companyApproved:
         type: boolean
       companyName:
         type: string
@@ -218,6 +216,8 @@ definitions:
       phoneNo:
         type: integer
         format: int64
+      transporterApproved:
+        type: boolean
       transporterLocation:
         type: string
     title: Transporter
@@ -227,6 +227,8 @@ definitions:
       message:
         type: string
       status:
+        type: string
+      transporterId:
         type: string
     title: TransporterCreateResponse
   TransporterDeleteResponse:
@@ -245,3 +247,22 @@ definitions:
       status:
         type: string
     title: TransporterUpdateResponse
+  UpdateTransporter:
+    type: object
+    properties:
+      companyApproved:
+        type: boolean
+      companyName:
+        type: string
+      kyc:
+        type: string
+      name:
+        type: string
+      phoneNo:
+        type: integer
+        format: int64
+      transporterApproved:
+        type: boolean
+      transporterLocation:
+        type: string
+    title: UpdateTransporter
