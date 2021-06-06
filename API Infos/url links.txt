@@ -3,3 +3,6 @@ http://ec2-65-0-138-10.ap-south-1.compute.amazonaws.com:8080/home
 
 transporterAPI url link:
 http://ec2-65-0-138-10.ap-south-1.compute.amazonaws.com:9090/home
+
+loadAPI url link:
+http://ec2-52-53-40-46.us-west-1.compute.amazonaws.com:8080/home
