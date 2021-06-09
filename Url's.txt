@@ -1,7 +1,8 @@
-1. truckApi Url : http://ec2-65-2-131-164.ap-south-1.compute.amazonaws.com:9090/
+1. truckApi Url : http://ec2-13-235-104-249.ap-south-1.compute.amazonaws.com:9090/
 
 
-2. bookingApi Url: http://ec2-65-2-131-164.ap-south-1.compute.amazonaws.com:8090/
+
+2. bookingApi Url: http://ec2-13-235-104-249.ap-south-1.compute.amazonaws.com:8090/
 
 
 3. biddingApi Url: http://ec2-15-207-113-71.ap-south-1.compute.amazonaws.com:8080/
