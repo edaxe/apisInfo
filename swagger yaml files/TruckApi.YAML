@@ -11,7 +11,7 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0"
         }
     },
-    "host": "localhost:8080",
+    "host": "localhost:9090",
     "basePath": "/",
     "tags": [
         {
@@ -639,22 +639,18 @@
                 "truckType": {
                     "type": "string",
                     "enum": [
-                        "CLOSED_CONTAINER",
-                        "LCV",
-                        "OPEN_BODY_TRUCK",
-                        "OTHERS",
-                        "TANKER",
-                        "TIPPER",
-                        "TRAILER"
+                        "FLATBED",
+                        "FULL_BODY_TRAILER",
+                        "HALF_BODY_TRAILER",
+                        "HIGH_CUBE_CONTAINER",
+                        "OPEN_FULL_BODY",
+                        "OPEN_HALF_BODY",
+                        "STANDARD_CONTAINER"
                     ]
                 },
                 "tyres": {
-                    "type": "string",
-                    "enum": [
-                        "EIGHT_TYRES",
-                        "OTHERS",
-                        "SIX_TYRES"
-                    ]
+                    "type": "integer",
+                    "format": "int32"
                 }
             },
             "title": "TruckData"
@@ -684,31 +680,24 @@
                 "transporterId": {
                     "type": "string"
                 },
-                "truckApproved": {
-                    "type": "boolean"
-                },
                 "truckNo": {
                     "type": "string"
                 },
                 "truckType": {
                     "type": "string",
                     "enum": [
-                        "CLOSED_CONTAINER",
-                        "LCV",
-                        "OPEN_BODY_TRUCK",
-                        "OTHERS",
-                        "TANKER",
-                        "TIPPER",
-                        "TRAILER"
+                        "FLATBED",
+                        "FULL_BODY_TRAILER",
+                        "HALF_BODY_TRAILER",
+                        "HIGH_CUBE_CONTAINER",
+                        "OPEN_FULL_BODY",
+                        "OPEN_HALF_BODY",
+                        "STANDARD_CONTAINER"
                     ]
                 },
                 "tyres": {
-                    "type": "string",
-                    "enum": [
-                        "EIGHT_TYRES",
-                        "OTHERS",
-                        "SIX_TYRES"
-                    ]
+                    "type": "integer",
+                    "format": "int32"
                 }
             },
             "title": "TruckRequest"
@@ -732,22 +721,18 @@
                 "truckType": {
                     "type": "string",
                     "enum": [
-                        "CLOSED_CONTAINER",
-                        "LCV",
-                        "OPEN_BODY_TRUCK",
-                        "OTHERS",
-                        "TANKER",
-                        "TIPPER",
-                        "TRAILER"
+                        "FLATBED",
+                        "FULL_BODY_TRAILER",
+                        "HALF_BODY_TRAILER",
+                        "HIGH_CUBE_CONTAINER",
+                        "OPEN_FULL_BODY",
+                        "OPEN_HALF_BODY",
+                        "STANDARD_CONTAINER"
                     ]
                 },
                 "tyres": {
-                    "type": "string",
-                    "enum": [
-                        "EIGHT_TYRES",
-                        "OTHERS",
-                        "SIX_TYRES"
-                    ]
+                    "type": "integer",
+                    "format": "int32"
                 }
             },
             "title": "TruckUpdateRequest"
