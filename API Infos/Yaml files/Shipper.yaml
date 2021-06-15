@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  description: Api Documentation
+  description: ShipperAPI Documentation
   version: '1.0'
   title: ShipperAPI Documentation
   termsOfService: 'urn:tos'
@@ -11,13 +11,13 @@ info:
 host: 'localhost:8080'
 basePath: /
 tags:
-  - name: shipper
-    description: Shipper
+  - name: shipper-controller
+    description: Shipper Controller
 paths:
   /home:
     get:
       tags:
-        - shipper
+        - shipper-controller
       summary: home
       operationId: homeUsingGET
       produces:
@@ -37,15 +37,15 @@ paths:
   /shipper:
     get:
       tags:
-        - shipper
+        - shipper-controller
       summary: getShippers
       operationId: getShippersUsingGET
       produces:
         - '*/*'
       parameters:
-        - name: approved
+        - name: companyApproved
           in: query
-          description: approved
+          description: companyApproved
           required: false
           type: boolean
         - name: pageNo
@@ -70,7 +70,7 @@ paths:
       deprecated: false
     post:
       tags:
-        - shipper
+        - shipper-controller
       summary: addShipper
       operationId: addShipperUsingPOST
       consumes:
@@ -79,11 +79,11 @@ paths:
         - '*/*'
       parameters:
         - in: body
-          name: loadShipper
-          description: loadShipper
+          name: postShipper
+          description: postShipper
           required: true
           schema:
-            $ref: '#/definitions/LoadShipper'
+            $ref: '#/definitions/PostShipper'
       responses:
         '200':
           description: OK
@@ -101,7 +101,7 @@ paths:
   '/shipper/{id}':
     get:
       tags:
-        - shipper
+        - shipper-controller
       summary: getOneShipper
       operationId: getOneShipperUsingGET
       produces:
@@ -126,7 +126,7 @@ paths:
       deprecated: false
     put:
       tags:
-        - shipper
+        - shipper-controller
       summary: updateShipper
       operationId: updateShipperUsingPUT
       consumes:
@@ -140,11 +140,11 @@ paths:
           required: true
           type: string
         - in: body
-          name: loadShipper
-          description: loadShipper
+          name: updateShipper
+          description: updateShipper
           required: true
           schema:
-            $ref: '#/definitions/LoadShipper'
+            $ref: '#/definitions/UpdateShipper'
       responses:
         '200':
           description: OK
@@ -161,7 +161,7 @@ paths:
       deprecated: false
     delete:
       tags:
-        - shipper
+        - shipper-controller
       summary: deleteShipper
       operationId: deleteShipperUsingDELETE
       produces:
@@ -185,11 +185,9 @@ paths:
           description: Forbidden
       deprecated: false
 definitions:
-  LoadShipper:
+  PostShipper:
     type: object
     properties:
-      approved:
-        type: boolean
       companyName:
         type: string
       kyc:
@@ -199,11 +197,15 @@ definitions:
       phoneNo:
         type: integer
         format: int64
-    title: LoadShipper
+      shipperLocation:
+        type: string
+    title: PostShipper
   Shipper:
     type: object
     properties:
-      approved:
+      accountVerificationInProgress:
+        type: boolean
+      companyApproved:
         type: boolean
       companyName:
         type: string
@@ -216,11 +218,30 @@ definitions:
       phoneNo:
         type: integer
         format: int64
+      shipperLocation:
+        type: string
     title: Shipper
   ShipperCreateResponse:
     type: object
     properties:
+      accountVerificationInProgress:
+        type: boolean
+      companyApproved:
+        type: boolean
+      companyName:
+        type: string
+      id:
+        type: string
+      kyc:
+        type: string
       message:
+        type: string
+      name:
+        type: string
+      phoneNo:
+        type: integer
+        format: int64
+      shipperLocation:
         type: string
       status:
         type: string
@@ -236,8 +257,44 @@ definitions:
   ShipperUpdateResponse:
     type: object
     properties:
+      accountVerificationInProgress:
+        type: boolean
+      companyApproved:
+        type: boolean
+      companyName:
+        type: string
+      id:
+        type: string
+      kyc:
+        type: string
       message:
+        type: string
+      name:
+        type: string
+      phoneNo:
+        type: integer
+        format: int64
+      shipperLocation:
         type: string
       status:
         type: string
     title: ShipperUpdateResponse
+  UpdateShipper:
+    type: object
+    properties:
+      accountVerificationInProgress:
+        type: boolean
+      companyApproved:
+        type: boolean
+      companyName:
+        type: string
+      kyc:
+        type: string
+      name:
+        type: string
+      phoneNo:
+        type: integer
+        format: int64
+      shipperLocation:
+        type: string
+    title: UpdateShipper
