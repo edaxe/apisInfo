@@ -2,10 +2,10 @@
 
 
 
-2. bookingApi Url: http://3.108.202.141:8090/booking
+2. bookingApi Url: http://3.108.202.141:8090/
 
 
-3. biddingApi Url: http://ec2-15-207-113-71.ap-south-1.compute.amazonaws.com:8080/
+3. biddingApi Url: http://3.108.202.141:8080/
 
 
 4. driverApi Url: http://ec2-15-207-113-71.ap-south-1.compute.amazonaws.com:9080/
