@@ -1,8 +1,11 @@
 shipperAPI url link:
-http://ec2-13-127-228-76.ap-south-1.compute.amazonaws.com:8080/
+http://3.108.47.10:8080/
 
 transporterAPI url link:
-http://ec2-13-127-228-76.ap-south-1.compute.amazonaws.com:9090/
+http://3.108.47.10:9090/
 
 loadAPI url link:
-http://ec2-65-0-19-187.ap-south-1.compute.amazonaws.com:8080/
+http://15.207.224.92:8080/
+
+documentAPI url link:
+http://15.207.224.92:9090/
