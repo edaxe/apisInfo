@@ -8,4 +8,4 @@
 3. biddingApi Url: http://3.108.202.141:8080/
 
 
-4. driverApi Url: http://ec2-15-207-113-71.ap-south-1.compute.amazonaws.com:9080/
+4. driverApi Url: http://13.233.56.29:9080/
