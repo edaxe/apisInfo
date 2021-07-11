@@ -1,11 +1,12 @@
-shipperAPI url link:
-http://3.108.47.10:8080/
-
-transporterAPI url link:
-http://3.108.47.10:9090/
-
 loadAPI url link:
 http://15.207.224.92:8080/
 
+transporterAPI url link:
+http://65.0.211.45:9090/
+
+shipperAPI url link:
+http://65.0.113.164:8080/
+
 documentAPI url link:
-http://15.207.224.92:9090/
+http://65.1.115.84:9090/
+
